@@ -9,8 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ResultadosRouteImport } from './routes/resultados'
+import { Route as ReflexaoRouteImport } from './routes/reflexao'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as EmocoesRouteImport } from './routes/emocoes'
+import { Route as EducativoRouteImport } from './routes/educativo'
+import { Route as ContextoRouteImport } from './routes/contexto'
+import { Route as AutocuidadoRouteImport } from './routes/autocuidado'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ResultadosRoute = ResultadosRouteImport.update({
+  id: '/resultados',
+  path: '/resultados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReflexaoRoute = ReflexaoRouteImport.update({
+  id: '/reflexao',
+  path: '/reflexao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmocoesRoute = EmocoesRouteImport.update({
+  id: '/emocoes',
+  path: '/emocoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EducativoRoute = EducativoRouteImport.update({
+  id: '/educativo',
+  path: '/educativo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContextoRoute = ContextoRouteImport.update({
+  id: '/contexto',
+  path: '/contexto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutocuidadoRoute = AutocuidadoRouteImport.update({
+  id: '/autocuidado',
+  path: '/autocuidado',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +61,130 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/autocuidado': typeof AutocuidadoRoute
+  '/contexto': typeof ContextoRoute
+  '/educativo': typeof EducativoRoute
+  '/emocoes': typeof EmocoesRoute
+  '/perfil': typeof PerfilRoute
+  '/reflexao': typeof ReflexaoRoute
+  '/resultados': typeof ResultadosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/autocuidado': typeof AutocuidadoRoute
+  '/contexto': typeof ContextoRoute
+  '/educativo': typeof EducativoRoute
+  '/emocoes': typeof EmocoesRoute
+  '/perfil': typeof PerfilRoute
+  '/reflexao': typeof ReflexaoRoute
+  '/resultados': typeof ResultadosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/autocuidado': typeof AutocuidadoRoute
+  '/contexto': typeof ContextoRoute
+  '/educativo': typeof EducativoRoute
+  '/emocoes': typeof EmocoesRoute
+  '/perfil': typeof PerfilRoute
+  '/reflexao': typeof ReflexaoRoute
+  '/resultados': typeof ResultadosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/autocuidado'
+    | '/contexto'
+    | '/educativo'
+    | '/emocoes'
+    | '/perfil'
+    | '/reflexao'
+    | '/resultados'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/autocuidado'
+    | '/contexto'
+    | '/educativo'
+    | '/emocoes'
+    | '/perfil'
+    | '/reflexao'
+    | '/resultados'
+  id:
+    | '__root__'
+    | '/'
+    | '/autocuidado'
+    | '/contexto'
+    | '/educativo'
+    | '/emocoes'
+    | '/perfil'
+    | '/reflexao'
+    | '/resultados'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AutocuidadoRoute: typeof AutocuidadoRoute
+  ContextoRoute: typeof ContextoRoute
+  EducativoRoute: typeof EducativoRoute
+  EmocoesRoute: typeof EmocoesRoute
+  PerfilRoute: typeof PerfilRoute
+  ReflexaoRoute: typeof ReflexaoRoute
+  ResultadosRoute: typeof ResultadosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/resultados': {
+      id: '/resultados'
+      path: '/resultados'
+      fullPath: '/resultados'
+      preLoaderRoute: typeof ResultadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reflexao': {
+      id: '/reflexao'
+      path: '/reflexao'
+      fullPath: '/reflexao'
+      preLoaderRoute: typeof ReflexaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emocoes': {
+      id: '/emocoes'
+      path: '/emocoes'
+      fullPath: '/emocoes'
+      preLoaderRoute: typeof EmocoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/educativo': {
+      id: '/educativo'
+      path: '/educativo'
+      fullPath: '/educativo'
+      preLoaderRoute: typeof EducativoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contexto': {
+      id: '/contexto'
+      path: '/contexto'
+      fullPath: '/contexto'
+      preLoaderRoute: typeof ContextoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/autocuidado': {
+      id: '/autocuidado'
+      path: '/autocuidado'
+      fullPath: '/autocuidado'
+      preLoaderRoute: typeof AutocuidadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +197,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AutocuidadoRoute: AutocuidadoRoute,
+  ContextoRoute: ContextoRoute,
+  EducativoRoute: EducativoRoute,
+  EmocoesRoute: EmocoesRoute,
+  PerfilRoute: PerfilRoute,
+  ReflexaoRoute: ReflexaoRoute,
+  ResultadosRoute: ResultadosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
